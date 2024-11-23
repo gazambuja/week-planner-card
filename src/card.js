@@ -79,6 +79,7 @@ export class WeekPlannerCard extends LitElement {
     _hideTodayWithoutEvents;
     _filter;
     _filterText;
+    _replaceText;
     _combineSimilarEvents;
     _showLegend;
     _actions;
@@ -172,6 +173,7 @@ export class WeekPlannerCard extends LitElement {
         this._hideTodayWithoutEvents = config.hideTodayWithoutEvents ?? false;
         this._filter = config.filter ?? false;
         this._filterText = config.filterText ?? false;
+        this._replaceText = config.replaceText ?? false;
         this._combineSimilarEvents = config.combineSimilarEvents ?? false;
         this._showLegend = config.showLegend ?? false;
         this._actions = config.actions ?? false;
@@ -712,6 +714,16 @@ export class WeekPlannerCard extends LitElement {
             summary = summary.replace(new RegExp(this._filterText), '');
         }
 
+        if (calendar.replaceText) {
+            const [findText, replaceText] = calendar.replaceText.split("|");
+            summary = summary.replace(findText, replaceText);
+        }
+
+        if (this._replaceText) {
+            const [findText, replaceText] = calendar._replaceText.split("|");
+            summary = summary.replace(findText, replaceText);
+        }
+      
         return summary;
     }
 

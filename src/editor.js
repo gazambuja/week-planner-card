@@ -48,6 +48,7 @@ export class WeekPlannerCardEditor extends LitElement {
                                         ${this.addIconPickerField('calendars.' + index + '.icon', 'Icon')}
                                         ${this.addTextField('calendars.' + index + '.filter', 'Filter events (regex)')}
                                         ${this.addTextField('calendars.' + index + '.filterText', 'Filter event text (regex)')}
+                                        ${this.addTextField('calendars.' + index + '.replaceText', 'Replace event text (find|replace)')}
                                         ${this.addBooleanField('calendars.' + index + '.hideInLegend', 'Hide in legend')}
                                         ${this.addButton('Remove calendar', 'mdi:trash-can', () => {
                                             const config = Object.assign({}, this._config);
@@ -118,6 +119,7 @@ export class WeekPlannerCardEditor extends LitElement {
                         ${this.addBooleanField('hidePastEvents', 'Hide past events')}
                         ${this.addTextField('filter', 'Filter events (regex)')}
                         ${this.addTextField('filterText', 'Filter event text (regex)')}
+                        ${this.addTextField('replaceText', 'Replace event text (find|replace)')}
                         ${this.addBooleanField('combineSimilarEvents', 'Combine similar events')}
                         ${this.addBooleanField('showLocation', 'Show location in overview')}
                         ${this.addTextField('locationLink', 'Override location link base URL')}
